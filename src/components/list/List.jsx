@@ -7,6 +7,8 @@ function List({ todos, setTodos }) {
         const newTodos = todos.filter((todo)=>{
             return todo.id !== todoId;
         })
+
+        setTodos(newTodos);
     }
 
     function onEditHandler(todoId) {
