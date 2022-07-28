@@ -1,10 +1,12 @@
 import React from "react";
 import Todo from '../todo/Todo'
 import './style.css'
-// import { useDispatch } from 'react-redux'
+// import { useSelector, useDispatch } from 'react-redux';
 // import { removeTodo, editTodo } from '../features/todostate/tododuck'
 
+// props delete
 function List({ todos, setTodos }) {
+    // const data = useSelector((state) => state.tododuck.list);
     // const dispatch = useDispatch();
 
     function onDeleteHandler(todoId) {
@@ -37,12 +39,12 @@ function List({ todos, setTodos }) {
         <div className="list-container">
             <h2>Working...</h2>
             <div className="list-wrapper">
-                {todos.map((todo) => {
-                    if(!todo.isDone){
+                {todos.map((todo) => { 
+                    if(!todo.isDone){ // data.isDone
                         return <Todo 
                             todo={todo}
                             key={todo.id}
-                            setTodos={setTodos}
+                            setTodos={setTodos} // why???
                             onDeleteHandler={onDeleteHandler}
                             onEditHandler={onEditHandler}
                         />
@@ -59,7 +61,7 @@ function List({ todos, setTodos }) {
                     return <Todo 
                         todo={todo}
                         key={todo.id}
-                        setTodos={setTodos}
+                        setTodos={setTodos} // why???
                         onDeleteHandler={onDeleteHandler}
                         onEditHandler={onEditHandler}
                     />
