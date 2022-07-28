@@ -1,14 +1,19 @@
 import React from "react";
 import Todo from '../todo/Todo'
 import './style.css'
+// import { useDispatch } from 'react-redux'
+// import { removeTodo, editTodo } from '../features/todostate/tododuck'
 
 function List({ todos, setTodos }) {
+    // const dispatch = useDispatch();
+
     function onDeleteHandler(todoId) {
         const newTodos = todos.filter((todo)=>{
             return todo.id !== todoId;
         })
 
         setTodos(newTodos);
+        // dispatch(removeTodo(todoId));
     }
 
     function onEditHandler(todoId) {
@@ -25,6 +30,7 @@ function List({ todos, setTodos }) {
         });
 
         setTodos(newTodos);
+        // dispatch(editTodo(todoId))
     }
 
     return (

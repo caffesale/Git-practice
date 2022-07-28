@@ -1,9 +1,13 @@
 import React from "react";
 import './style.css';
 import { useRef } from 'react'
-import { useState } from 'react'
+
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo } from '../features/todostate/tododuck'
 
 function Form({ todos, setTodos}) {
+    // const my_list = useSelector((state) => state.tododuck.list);
+    // const dispatch = useDispatch();
     const titleInputRef = useRef();
     const contentInputRef = useRef();
 
@@ -22,6 +26,7 @@ function Form({ todos, setTodos}) {
         }
         
         setTodos([...todos, Data]);
+        // dispatch(addTodo(Data));
     }
     
 
