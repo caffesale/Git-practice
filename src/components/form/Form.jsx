@@ -2,8 +2,8 @@ import React from "react";
 import './style.css';
 import { useRef } from 'react'
 
-import { useSelector, useDispatch } from 'react-redux';
-import { addTodo } from '../features/todostate/tododuck'
+// import { useSelector, useDispatch } from 'react-redux';
+// import { addTodo } from '../features/todostate/tododuck'
 
 function Form({ todos, setTodos}) {
     // const my_list = useSelector((state) => state.tododuck.list);
