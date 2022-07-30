@@ -1,32 +1,45 @@
-import React from "react";
+import React, {useState} from "react";
 import './style.css';
-import { useRef } from 'react'
+import { v4 } from 'uuid'
 
-// import { useSelector, useDispatch } from 'react-redux';
-// import { addTodo } from '../features/todostate/tododuck'
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../../features/todostate/todoSlice'
 
-function Form({ todos, setTodos}) {
-    // const my_list = useSelector((state) => state.tododuck.list);
-    // const dispatch = useDispatch();
-    const titleInputRef = useRef();
-    const contentInputRef = useRef();
+
+function Form() {
+    const dispatch = useDispatch();
+    const [todo, setTodo] = useState({
+        id:0,
+        title:"",
+        body:"",
+        isDone:false
+    })
+
+    function onChangeHandler(event) {
+        const { name, value } = event.target;
+        setTodo({...todo, [name]: value})
+    }
+
 
     function onSubmitHandler(event) {
         event.preventDefault();
         
-        const id = todos.length +1;
-        const enteredTitle = titleInputRef.current.value;
-        const enteredBody = contentInputRef.current.value;
+        const id = v4();
 
         const Data = {
             id : id,
-            title : enteredTitle,
-            body : enteredBody,
+            title : todo.title,
+            body : todo.body,
             isDone : false,
         }
-        
-        setTodos([...todos, Data]);
-        // dispatch(addTodo(Data));
+
+        dispatch(addTodo(Data));
+        setTodo({
+            id:0,
+            title:"",
+            body:"",
+            isDone:false
+        })
     }
     
 
@@ -34,9 +47,9 @@ function Form({ todos, setTodos}) {
         <form className="add-form" onSubmit={onSubmitHandler}>
             <div className="input-group">
                 <label className="form-label" htmlFor="title">제목</label>
-                <input className="add-input input-body" type="text" id="title" required ref={titleInputRef}/>
+                <input className="add-input input-body" type="text" id="title" name="title" required value={todo.title} onChange={onChangeHandler}/>
                 <label className="form-label" htmlFor="content">내용</label>
-                <input className="add-input input-body" type="text" id="content" required ref={contentInputRef}/>
+                <input className="add-input input-body" type="text" id="content" name="body" required value={todo.body} onChange={onChangeHandler}/>
             </div>
             <button className="add-button">추가하기</button>
         </form>

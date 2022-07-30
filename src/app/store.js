@@ -1,7 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-import tododuck from '../features/todostate/tododuck'
+import todosReducer from '../features/todostate/todoSlice'
 
-const rootReducer = combineReducers({tododuck});
+
+const rootReducer = combineReducers({todos: todosReducer});
 
 const store = createStore(rootReducer);
 
