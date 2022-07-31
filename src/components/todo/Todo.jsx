@@ -3,6 +3,7 @@ import './style.css'
 
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { removeTodo, editTodo } from '../../features/todostate/todoSlice'
+import { Link } from 'react-router-dom'
 
 const selectedTodoById = (state, todoId) => {
     return state.todos.list.find(todo => todo.id === todoId)
@@ -12,7 +13,7 @@ function Todo({todoId}) {
 
     const todo = useSelector(state => selectedTodoById(state, todoId), shallowEqual);
     const dispatch = useDispatch();
-
+    
     function onDeleteHandler(todoId) {
         dispatch(removeTodo(todoId));
     }
@@ -25,7 +26,7 @@ function Todo({todoId}) {
     return (
         <div className="todo-container">
             <div>
-                <button>Detail</button>
+                <Link to="/Detail" state={{ todo:todo }}>Detail</Link>
                 <h2>{todo.title}</h2>
                 <div>{todo.body}</div>
             </div>

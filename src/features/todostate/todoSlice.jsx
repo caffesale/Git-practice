@@ -29,14 +29,16 @@ export function removeTodo(task) {
     return {type: DELETE, task}
 }
 
-export function editTodo(task) {
-    return {type: EDIT, task}
+export function editTodo(id) {
+    return {type: EDIT, id}
 }
 
 export default function todosReducer(state = initialState, action = {}) {
     switch (action.type) {
         case ADD: {
             const added_list = [...state.list, action.task]
+            console.log(action);
+
             return { list: added_list };
         }
 
@@ -49,7 +51,7 @@ export default function todosReducer(state = initialState, action = {}) {
 
         case EDIT: {
             const edited_list = state.list.map((value) => {
-                if(value.id === action.task){
+                if(value.id === action.id){
                     return {...value, isDone:!value.isDone}
                 }
                 else{
