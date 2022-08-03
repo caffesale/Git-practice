@@ -1,5 +1,7 @@
+
 // Actions
 
+const LOAD = 'todos/todolisted'
 const ADD = 'todos/todoAdded';
 const DELETE = 'todos/todoDeleted';
 const EDIT = 'todos/todoEdited';
@@ -21,6 +23,11 @@ const initialState = {
     ]
 };
 
+// action creater
+export function todolist(todo_list) {
+    return {type:LOAD, todo_list};
+}
+
 export function addTodo(task) {
     return {type: ADD, task };
 }
@@ -33,8 +40,33 @@ export function editTodo(id) {
     return {type: EDIT, id}
 }
 
+//thunk function
+export async function fetchTodos(dispatch, getState) {
+    const response = await fetch('http://localhost:5001/list');
+    const datalist = response.json()
+
+    console.log(datalist)
+}
+
+export function addTodoThunk(todo) {
+    return async (dispatch, getState) => {
+        const response = await fetch('http://localhost:5001/list', );
+        const todols = response.todos.list;
+        // console.log(todols);
+        dispatch(addTodo(todols))
+    }
+}
+
+
+// reducers
 export default function todosReducer(state = initialState, action = {}) {
     switch (action.type) {
+        case LOAD: {
+            console.log(action)
+            return { list: action.datalist}
+        }
+
+
         case ADD: {
             const added_list = [...state.list, action.task]
             console.log(action);
