@@ -4,7 +4,10 @@ import './style.css'
 
 import {useSelector} from 'react-redux'
 
+
+
 function List() {
+
     const list = useSelector(state => state.todos.list);
 
     return (

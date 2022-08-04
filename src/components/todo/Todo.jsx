@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css'
 
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import { removeTodo, editTodo } from '../../features/todostate/todoSlice'
+import { removeTodoFB, editTodoFB} from '../../features/todostate/todoSlice'
 import { Link } from 'react-router-dom'
 
 const selectedTodoById = (state, todoId) => {
@@ -15,11 +15,11 @@ function Todo({todoId}) {
     const dispatch = useDispatch();
     
     function onDeleteHandler(todoId) {
-        dispatch(removeTodo(todoId));
+        dispatch(removeTodoFB(todoId));
     }
 
     function onEditHandler(todoId) {
-        dispatch(editTodo(todoId))
+        dispatch(editTodoFB(todoId))
     }
 
 

@@ -3,13 +3,13 @@ import './style.css';
 import { v4 } from 'uuid'
 
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../../features/todostate/todoSlice'
+import { addTodo, addTodoFB } from '../../features/todostate/todoSlice'
 
 
 function Form() {
     const dispatch = useDispatch();
     const [todo, setTodo] = useState({
-        id:0,
+        // id:0,
         title:"",
         body:"",
         isDone:false
@@ -24,18 +24,21 @@ function Form() {
     function onSubmitHandler(event) {
         event.preventDefault();
         
-        const id = v4();
+        // const id = v4();
 
-        const Data = {
-            id : id,
+        let data = {
+            // id : id,
             title : todo.title,
             body : todo.body,
             isDone : false,
         }
 
-        dispatch(addTodo(Data));
+        // console.log(data)
+
+        dispatch(addTodoFB(data));
+
         setTodo({
-            id:0,
+            // id:0,
             title:"",
             body:"",
             isDone:false
