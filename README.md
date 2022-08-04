@@ -1,8 +1,5 @@
-# 커밋
+# firebase 브랜치를 참조해주세요!
 
-commit 23f983dd96ab6e98a4b919d5081ff39dd8c34cad <-- **firebase 브랜치** firestore와의 비동기 통신, 미들웨어 작성
-<br>
-commit 23f983dd96ab6e98a4b919d5081ff39dd8c34cad <-- redux 전역관리 구현 / styled-components는 detail페이지에만 작성
 
 ## 컴포넌트 구조
 
