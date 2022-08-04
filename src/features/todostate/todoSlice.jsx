@@ -112,7 +112,7 @@ export default function todosReducer(state = initialState, action = {}) {
     switch (action.type) {
         case LOAD: {
             // console.log(action.todo_list);
-            return { list: action.todo_list}
+            return { list: action.todo_list }
         }
         case ADD: {
             // console.log(action);
