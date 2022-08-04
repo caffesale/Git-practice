@@ -1,70 +1,15 @@
-# Getting Started with Create React App
+# firebase 브랜치를 참조해주세요!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 컴포넌트 구조
 
-In the project directory, you can run:
+대부분은 지난 주차 과제에서 변동이 없고 새롭게 추가한 요소는 리덕스 공식 튜토리얼 문서를 참조하여 배치했습니다.
+<br>
+app폴더 하위에 store, duck 구조상 기능에 따라 리듀서를 나누기 위해 features폴더를 만들었으며 하위 todostate폴더에 todolist에 관한 액션 함수와 리듀서를 작성했습니다. 상세페이지는 컴포넌트가 아니므로 pages폴더에, firebase관련 코드는 api폴더에 넣었습니다.
 
-### `npm start`
+## 특이사항
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
++ redux 관리버전에서는 uuid 모듈을 사용해 아이디를 부여했지만 firebase 구현에서는 따로 아이디를 부여하지 않고 가져왔습니다. 
++ ReadTodo 기능은 구현했으나 힌트에 주어진 getTodoById(action creater)는 생성하지 않았습니다. 이름상 id로 state를 받아오는 것을 말하는 것 같아 Todo컴포넌트에 구현했습니다.
++ form 컴포넌트의 값을 입력받기 위한 state는 굳이 필요하지 않아 전역으로 관리하지 않았습니다.
++ reduxtoolkit 관련 코드는 연결하지 않았습니다.
