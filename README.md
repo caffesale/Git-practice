@@ -14,3 +14,5 @@ app폴더 하위에 store, duck 구조상 기능에 따라 리듀서를 나누�
 
 + redux 관리버전에서는 uuid 모듈을 사용해 아이디를 부여했지만 firebase 구현에서는 따로 아이디를 부여하지 않고 가져왔습니다. 
 + ReadTodo 기능은 구현했으나 힌트에 주어진 getTodoById(action creater)는 생성하지 않았습니다. 이름상 id로 state를 받아오는 것을 말하는 것 같아 Todo컴포넌트에 구현했습니다.
++ form 컴포넌트의 값을 입력받기 위한 state는 굳이 필요하지 않아 전역으로 관리하지 않았습니다.
++ reduxtoolkit 관련 코드는 연결하지 않았습니다.
